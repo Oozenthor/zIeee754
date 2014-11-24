@@ -8,7 +8,7 @@ ZIeee754::ZIeee754() { }
 
 ZIeee754::~ZIeee754() { }
 
-qreal ZIeee754::toIeee754(quint32 binary32) // Single precision (32 bit)
+qreal ZIeee754::toIeee754(quint32 binary32) // Single precision IEEE754 (32 bit)
 {
     // extract ieee754 bit components
         bsign = (binary32 & 0x80000000) >> 31;
@@ -18,8 +18,8 @@ qreal ZIeee754::toIeee754(quint32 binary32) // Single precision (32 bit)
 
     // convert bit parts to doubles and calculate real values
         sign = qPow(-1, static_cast<qreal>(bsign));
-    exponent = qPow(2, static_cast<qreal>(bexponent) - 127);
-    mantassa = (static_cast<qreal>(bmantassa) / qPow(2, 23)) + 1;
+    exponent = qPow( 2, static_cast<qreal>(bexponent) - 127);
+    mantassa = 1 + (static_cast<qreal>(bmantassa) / qPow(2, 23));
     // qDebug() << sign << exponent << mantassa;
 
     return(sign * exponent * mantassa);   // final result
