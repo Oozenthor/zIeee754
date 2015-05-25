@@ -16,11 +16,11 @@ public:
 private:
     quint32 bsign;
     quint32 bexponent;
-    quint32 bmantassa;
+    quint32 bmantissa;
 
     qreal sign;
     qreal exponent;
-    qreal mantassa;
+    qreal mantissa;
 };
 
 #endif // ZIEEE754_H

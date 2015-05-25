@@ -49,6 +49,7 @@ Ieee754Example::Ieee754Example(QWidget *parent) :
     ui->textOut->insertPlainText(QString("Minimum value test (2^-126)\r"));
     answer = iee.toIeee754(0x007FFFFF);
     ui->textOut->insertPlainText(QString("1.1754943508222875e-38:\r %1\r").arg(answer, 0, 'e', 17));
+    ui->textOut->insertPlainText(QString("(This test is rarely correct)"));
 }
 
 Ieee754Example::~Ieee754Example()
